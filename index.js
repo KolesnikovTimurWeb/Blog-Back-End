@@ -1,5 +1,5 @@
 const express = require('express');
-
+const fs = require('fs')
 const app = express();
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
@@ -26,9 +26,13 @@ mongoose.set('strictQuery', false);
 
 const storage = multer.diskStorage({
    destination: (_, __, cb) => {
+      if (!fs.existsSync('uploads')) {
+         fs.mkdirSync("uploads")
+      }
       cb(null, 'uploads');
    },
    filename: (_, file, cb) => {
+
       cb(null, file.originalname);
    },
 });
