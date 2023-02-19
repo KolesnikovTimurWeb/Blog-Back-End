@@ -46,7 +46,7 @@ app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
 
 
 
-app.post('/auth/login',  UserController.login)
+app.post('/auth/login', UserController.login)
 app.post("/auth/register", handleValidationErrors, UserController.register)
 
 
@@ -181,7 +181,7 @@ const getMe = async (req, res) => {
 
 
 
-
+console.log(process.env.PORT)
 app.listen(process.env.PORT || 4444, (err) => {
    if (err) {
       return console.log(err)
