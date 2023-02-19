@@ -29,7 +29,7 @@ export const AddPost = () => {
     try {
       const formData = new FormData()
       formData.append("image", event.target.files[0])
-      const { data } = await axios.post('/upload', formData)
+      const { data } = await axios.post('upload', formData)
       setImageUrl(data.url)
     } catch (err) {
       console.warn(err)
