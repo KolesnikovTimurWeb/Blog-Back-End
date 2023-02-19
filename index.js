@@ -182,7 +182,7 @@ const getMe = async (req, res) => {
 
 
 
-app.listen(4444, (err) => {
+app.listen(proccess.env.PORT || 4444, (err) => {
    if (err) {
       return console.log(err)
    }
